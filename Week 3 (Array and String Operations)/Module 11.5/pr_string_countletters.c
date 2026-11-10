@@ -1,17 +1,20 @@
 #include <stdio.h>
-#include <string.h>
 int main()
 {
-    char S[10000001];
+    char S[10000000]; //10^7 is allowed in problem but not working here
     scanf("%s",&S);
-    int fre[1001]={0},len=strlen(S),a;
-    for(int i=0 ; i<len ; i++){
-        int val = S[i];
+    int fre[26]={0};
+    for(int i=0 ; ; i++){
+        if(S[i]=='\0'){
+            break;
+        }
+        int val = S[i]-'a';
         fre[val]++;
     }
-    for(int i=0 ; i<1001 ; i++){
+    for(int i=0 ; i<26  ; i++){
         if(fre[i]!=0){
-            printf("%c : %d",i,fre[i]);
+            printf("%c : %d\n",i+'a',fre[i]);
+
         }
     }
 
