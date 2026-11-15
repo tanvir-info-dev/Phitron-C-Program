@@ -1,0 +1,17 @@
+#include <stdio.h>
+void swap(){
+    int X,Y;
+    scanf("%d%d",&X,&Y);
+    int temp;
+    temp=X;
+    X=Y;
+    Y=temp;
+    printf("%d %d",X,Y);
+
+}
+int main()
+{
+    swap();
+
+    return 0;
+}
