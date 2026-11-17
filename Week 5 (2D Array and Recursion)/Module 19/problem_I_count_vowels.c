@@ -1,22 +1,23 @@
 #include <stdio.h>
-void print_digit(int S[], int i, int count,int len)
+int print_digit(char S[], int i)
 {
-    if(i==len){
-        printf("%d",count);
-        return;
+    if(S[i]=='\0'){
+        return 0;
     }
+    int count = print_digit(S,i+1);
     if(S[i]=='a' || S[i]=='A' || S[i]=='e' || S[i]=='E' || S[i]=='i' || S[i]=='I' || S[i]=='o' || S[i]=='O' || S[i]=='u' || S[i]=='U'){
-        count++;
+        return count+1;
     }
-    print_digit(S,i+1,count,len);
+    else{
+        return count;
+    }
 }
 int main()
 {
     char S[201];
     fgets(S,201,stdin);
-    int len=strlen(S);
-    printf("%d ",len);
-    print_digit(S,0,0,len);
+    int ans = print_digit(S,0);
+    printf("%d",ans);
 
 
     return 0;
